@@ -2,21 +2,52 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/index_style.css"/>
-	<script type="text/javascript" src="js/load_navbar.js"></script>
+    <script type="text/javascript" src="js/load_navbar.js"></script>
     <title>Fakeimdb</title>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: 'top_movies.php',
+                success: function(data){
+                    $('#top-movies').html(data);
+                }
+            });
+            $.ajax({
+                url: 'top_shows.php',
+                success: function(data) {
+                    $('#top-shows').html(data);
+                }
+            });
+        });
+    </script>
 </head>
 <body>
-    <h2>FakeImdb</h2>
-    <!-- Load the navigation bar -->
-    <div id="navbar-frame"></div>
+        <link rel="stylesheet" type="text/css" href="css/index_style.css">
+        <h2>FakeImdb</h2>
+        <!-- Load the navigation bar -->
+        <div id="navbar-frame"></div>
+        <!-- Display top movies and shows -->
+	<div class="column-large">
+		<h3>Top Movies</h3>
+		<div id="top-movies"></div>
+		<h3>Top Shows</h3>
+	        <div id="top-shows"></div>
+	</div>
+	<div class="container column-small">
+		<form class="form-signin">
+        		<h4 class="form-signin-heading">Please sign in</h4>
+	        	<label for="inputUsername" class="sr-only">Username</label>
+	        	<input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+		        <label for="inputPassword" class="sr-only">Password</label>
+	        	<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        		<button class="btn btn-sm btn-primary btn-block" type="submit">Sign in</button>
+	      	</form>
+		<p>Don't have an account? <a href="sign_up.html">Sign Up</a></p>
+    	</div>
 </body>
 </html>
