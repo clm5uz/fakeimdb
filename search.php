@@ -6,7 +6,7 @@
         	echo("Can't connect to MySQL Server. Error code: " . mysqli_connect_error());
         	return null;
     	}
-	$searchType = $_POST['hiddenValue'];
+	$searchType = $_POST['searchType'];
 	echo $searchType;
         $stmt = $db_connection->stmt_init();
 	if($searchType == "Title"){

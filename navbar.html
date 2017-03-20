@@ -10,21 +10,16 @@
       <li><a href="#">Movies</a></li>
     </ul>
     <form class="navbar-form navbar-left" action="search.php" method="post">
-      <button id="searchbutton" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-	<input id="hiddenValue" type="hidden" name="hiddenValue" value="All">
-	<span class="selected" id="selectedValue">All</span>
-	<span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu option" role="menu">
-          <li id="All"><a onclick="onClickAll()" href="#">All</a></li>
-          <li id="Title"><a onclick="onClickTitle()" href="#">Title</a></li>
-          <li id="Genre"><a onclick="onClickGenre()" href="#">Genre</a></li>
-          <li id="Year"><a onclick="onClickYear()" href="#">Year</a></li>
-      </ul>
-      <div class="form-group">
-        <input id="ser" name="ser" type="text" class="form-control" placeholder="Search">
-      </div>
-      <button id="sumbitbutton" type="submit" class="btn btn-default">Search</button>
+	<select name="searchType" class="form-control">
+		<option value="All">All</option>
+		<option value="Title">Title</option>
+		<option value="Genre">Genre</option>
+		<option value="Year">Year</option>
+	</select>
+	<div class="form-group">
+        	<input id="ser" name="ser" type="text" class="form-control" placeholder="Search">
+	</div>
+	<button id="sumbitbutton" type="submit" class="btn btn-default form-control">Search</button>
     </form>
   </div>
 </nav>
