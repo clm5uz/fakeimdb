@@ -6,29 +6,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <script src="js/load_navbar.js"></script>
+    <script src="js/index.js"></script>
     <title>Fakeimdb</title>
-    <script>
-        $(document).ready(function() {
-            $.ajax({
-                url: 'top_movies.php',
-                success: function(data){
-                    $('#top-movies').html(data);
-                }
-            });
-            $.ajax({
-                url: 'top_shows.php',
-                success: function(data) {
-                    $('#top-shows').html(data);
-                }
-            });
-        });
-    </script>
 </head>
 <body>
         <link rel="stylesheet" type="text/css" href="css/index_style.css">
         <h2>FakeImdb</h2>
+	<h2 id="logged-in"></h2>
         <!-- Load the navigation bar -->
         <div id="navbar-frame"></div>
         <!-- Display top movies and shows -->
@@ -38,16 +23,6 @@
 		<h3>Top 5 Shows</h3>
 	        <div id="top-shows"></div>
 	</div>
-	<div class="container column-small">
-		<form class="form-signin">
-        		<h4 class="form-signin-heading">Please sign in</h4>
-	        	<label for="inputUsername" class="sr-only">Username</label>
-	        	<input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-		        <label for="inputPassword" class="sr-only">Password</label>
-	        	<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        		<button class="btn btn-sm btn-primary btn-block" type="submit">Sign in</button>
-	      	</form>
-		<p>Don't have an account? <a href="sign_up.html">Sign Up</a></p>
-    	</div>
+	<div class="container column-small" id="loginForm"></div>
 </body>
 </html>
