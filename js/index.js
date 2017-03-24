@@ -1,10 +1,10 @@
 $(document).ready(function() {
-	performLoginChanges();
+	performLoginChangesIndex();
 	loadTopMovies();
 	loadTopShows();
 });
 
-function performLoginChanges() {
+function performLoginChangesIndex() {
        	$.ajax({
                	url: 'check_logged_in.php',
                 success: function(data) {	
