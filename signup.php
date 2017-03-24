@@ -44,7 +44,8 @@
                 $stmt_get_id->store_result();
                 if ($stmt_get_id->num_rows == 1) {
                         while($data = $stmt_get_id->fetch()) {
-                      		$userID = $user_id;  
+                      		$userID = $user_id; 
+				$_SESSION['userID'] = $user_id; 
 			}
                 } else {
                         // Destroy session.
