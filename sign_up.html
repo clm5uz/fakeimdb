@@ -8,6 +8,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="js/load_navbar.js"></script>
+    <script type="text/javascript" src="js/signup.js"></script>
     <title>Fakeimdb</title>
 </head>
 <body>
@@ -26,12 +27,14 @@
         	                <label for="inputLastname" class="sr-only">Last name</label>
                 	        <input type="text" name="inputLastname" id="inputLastname" class="form-control" placeholder="Last name" required autofocus>
 			</div>
+			<label class="col-xs-12" style="display: none;" name="usernameError" id="usernameError">That username is taken</label>
                         <label for="inputUsername" class="sr-only">Username</label>
                         <input type="text" name="inputUsername" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
                         <label for="inputEmail" class="sr-only">Email address</label>
                         <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                         <label for="inputPhone" class="sr-only">Phone</label>
                         <input type="tel" name="inputPhone" id="inputPhone" class="form-control" placeholder="Phone" autofocus>
+			<label class="col-xs-12" style="display: none;" name="passwordError" id="passwordError">Passwords must match</label>
 			<div class="form-column">
 	                        <label for="inputPassword1" class="sr-only">Password</label>
         	                <input type="password" name="inputPassword1" id="inputPassword1" class="form-control" placeholder="Password" required>
@@ -40,7 +43,7 @@
 	                        <label for="inputPassword2" class="sr-only">Re-enter Password</label>
         	                <input type="password" name="inputPassword2" id="inputPassword2" class="form-control" placeholder="Re-enter Password" required>
 			</div>
-                        <button id="signupButton" class="btn btn-sm btn-primary btn-block" type="submit">Sign Up</button>
+                        <button id="signupButton" class="btn btn-sm btn-primary btn-block" type="submit" onclick="return validateSignupForm()">Sign Up</button>
                 </form>
         </div>	
 </body>
