@@ -15,7 +15,8 @@
         if($stmt->prepare("insert into user (username, password, first_name, last_name, email) values (?, ?, ?, ?, ?) ") or die(mysqli_error($db))) {
                 // Get parameters and bind to statement.
 		$username = $_POST['inputUsername'];
-		$password = $_POST['inputPassword1'];
+		// Use PHP's password_hash function to hash the plaintext password.
+		$password = password_hash($_POST['inputPassword1'], PASSWORD_DEFAULT);
 		$firstName = $_POST['inputFirstname'];
 		$lastName = $_POST['inputLastname'];
 		$email = $_POST['inputEmail'];
@@ -33,11 +34,10 @@
 	// Get the new user's ID.
 	$userID = "";
         $stmt_get_id = $db_connection->stmt_init();
-        if($stmt_get_id->prepare("select user_id from user where username = ? and password = ? ") or die(mysqli_error($db))) {
+        if($stmt_get_id->prepare("select user_id from user where username = ? ") or die(mysqli_error($db))) {
                 // Get parameters and bind to statement.
                 $username = $_POST['inputUsername'];
-                $password = $_POST['inputPassword1'];
-		$stmt_get_id->bind_param('ss', $username, $password);
+		$stmt_get_id->bind_param('s', $username);
                 // Execute the statement.
                 $stmt_get_id->execute();
 		$stmt_get_id->bind_result($user_id);
