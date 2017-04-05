@@ -2,6 +2,7 @@ $(document).ready(function() {
 	performLoginChangesProfile();
 	loadWantToWatchMedia();
 	loadWatchedMedia();
+	loadFriends();
 });
 
 function performLoginChangesProfile() {
@@ -32,4 +33,13 @@ function loadWatchedMedia() {
                     $('#watched-media').html(data);
                 }
         });
+}
+
+function loadFriends() {
+	$.ajax({
+		url: 'friends.php',
+		success: function(data) {
+			$('#friends').html(data);
+		}
+	});
 }
