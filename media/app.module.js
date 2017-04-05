@@ -1,7 +1,7 @@
 'use strict';
 
 // Define the `phonecatApp` module
-angular.module('phonecatApp', [
+angular.module('FakeImdb', [
   'ngRoute',
   'phoneDetail',
   'phoneList',

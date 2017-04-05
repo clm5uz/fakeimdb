@@ -9,9 +9,12 @@ angular.
       function ($routeParams, $http) {
         var self = this;
         self.movieId = $routeParams.movieId;
+        self.imgUrl = 'pizza';
+        this.pizza = 'pizza';
         $http.post('movie-detail/movie-detail.php', {"movieId": this.movieId}).
         then(function(response){
           self.movieData = response.data;
+          //self.imgUrl = 'img/movie-poster/' + self.movieId + '.jpg';
           //console.log("What's the word? " + self.movieData['title']);
         });
     }]

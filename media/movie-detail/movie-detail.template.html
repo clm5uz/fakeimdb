@@ -1,5 +1,37 @@
-<p><strong>Director(s): {{$ctrl.movieData['directors']}}</strong></p>
-<p><strong>Released: {{$ctrl.movieData['year_released']}}</strong></p>
-<p><strong>Genre: {{$ctrl.movieData['genre']}}</strong></p>
-<p>Rating: {{$ctrl.movieData['movie_rating']}}</p>
-<p>Duration: {{$ctrl.movieData['duration']}} minutes </p>
+<div class="container">
+  <div class="table-responsive">
+    <div class="col-md-4">
+      <table class="table">
+        <tbody>
+          <tr>
+            <img src="img/movie-poster/1.jpg" alt={{$ctrl.movieData['title']}} style="width:100%">
+          </tr>
+          <tr>
+            <td><b>Title</b></td>
+            <td>{{$ctrl.movieData['title']}}</td>
+          </tr>
+          <tr>
+            <td><b>Director(s)<b></td>
+            <td>{{$ctrl.movieData['directors']}}</td>
+          </tr>
+          <tr>
+            <td><b>Released<b></td>
+            <td>{{$ctrl.movieData['year_released']}}</td>
+          </tr>
+          <tr>
+            <td><b>Genre<b></td>
+            <td>{{$ctrl.movieData['genre']}}</td>
+          </tr>
+          <tr>
+            <td><b>Rating<b></td>
+            <td>{{$ctrl.movieData['movie_rating']}}</td>
+          </tr>
+          <tr>
+            <td><b>Duration<b></td>
+            <td>{{$ctrl.movieData['duration']}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
