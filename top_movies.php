@@ -7,17 +7,17 @@
         return null;
     }
 
-    echo "<table class=\"table table-bordered\"><tr><th>Title</th><th>Year Released</th><th>Genre</th><th>Avg. Rating</th></tr>";
+    echo "<table class=\"table\"><tr><th>Title</th><th>Year Released</th><th>Genre</th><th>Avg. Rating</th></tr>";
 
     $result = mysqli_query($db_connection, "SELECT media_id, title, year_released, genre, avg(star_rating) AS avg_rating
 						FROM media NATURAL JOIN movie NATURAL JOIN watched
 						GROUP BY media_id
 						ORDER BY avg_rating DESC
 						LIMIT 5");
-
+    $url = "#";
     while($row = mysqli_fetch_array($result)) {
 	echo "<tr>";
-        echo "<td>" . $row['title'] . "</td>";
+        echo "<td><a href=\"" . $url . "\">" . $row['title'] . "</a></td>";
         echo "<td>" . $row['year_released'] . "</td>";
         echo "<td>" . $row['genre'] . "</td>";
 	echo "<td>" . $row['avg_rating'] . "</td>";
