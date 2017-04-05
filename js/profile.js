@@ -3,6 +3,7 @@ $(document).ready(function() {
 	loadWantToWatchMedia();
 	loadWatchedMedia();
 	loadFriends();
+	searchForFriends();
 });
 
 function performLoginChangesProfile() {
@@ -41,5 +42,15 @@ function loadFriends() {
 		success: function(data) {
 			$('#friends').html(data);
 		}
+	});
+}
+
+function searchForFriends() {
+	$.ajax({
+                url: 'searchForFriends.php',
+                data: {name: $( "#searchForFriends" ).val()},
+                success: function(data){
+                	$('#friendSearchResult').html(data);
+        	}
 	});
 }

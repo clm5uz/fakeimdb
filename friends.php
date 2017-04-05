@@ -8,7 +8,7 @@
         	return null;
     	}	
 
-    	echo "<table class=\"table table-bordered\"><tr><th>Name</th></tr>";
+    	echo "<ul class=\"list-group\">";
 
     
 	$stmt = $db_connection->stmt_init();
@@ -20,11 +20,9 @@
 		$stmt->bind_result($first_name, $last_name);
 		$stmt->store_result();
 		while ($data = $stmt->fetch()) {
-			echo "<tr>";
-		        echo "<td>" . $first_name . " " . $last_name . "</td>";
-		        echo "</tr>";
+		        echo "<li class=\"list-group-item\">" . $first_name . " " . $last_name . "</li>";
 		}		
 	}
-	echo "</table>";
+	echo "</ul>";
 	mysqli_close($db_connection);
 ?>
