@@ -1,5 +1,5 @@
 <?php
-    require_once('media/library.php');
+    require_once('viewonly_permissions.php');
     $db_connection = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
 
     if (mysqli_connect_errno()) {
@@ -14,10 +14,10 @@
 						GROUP BY media_id
 						ORDER BY avg_rating DESC
 						LIMIT 5");
-    $url = "#";
+    $url = "media/#!/movies/";
     while($row = mysqli_fetch_array($result)) {
 	echo "<tr>";
-        echo "<td><a href=\"" . $url . "\">" . $row['title'] . "</a></td>";
+        echo "<td><a href=\"" . $url . $row['media_id']  . "\">" . $row['title'] . "</a></td>";
         echo "<td>" . $row['year_released'] . "</td>";
         echo "<td>" . $row['genre'] . "</td>";
 	echo "<td>" . $row['avg_rating'] . "</td>";

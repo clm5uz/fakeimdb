@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once('media/library.php');
+	require_once('viewonly_permissions.php');
 	$db_connection = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
 
 	if (mysqli_connect_errno()) {
@@ -12,7 +12,7 @@
 
     
 	$stmt = $db_connection->stmt_init();
-	$url = "#";
+	$url = "media/#!/movies/";
         if($stmt->prepare("select media_id, title, year_released, genre, star_rating from watched natural join media natural join user where user_id = ? ") or die(mysqli_error($db))) {
 		$userID = $_SESSION['userID'];
 		$stmt->bind_param('s', $userID);
@@ -22,7 +22,7 @@
 		$stmt->store_result();
 		while ($data = $stmt->fetch()) {
 			echo "<tr>";
-		        echo "<td><a href=\"" . $url . "\">" . $title . "</td>";
+		        echo "<td><a href=\"" . $url . $media_id . "\">" . $title . "</td>";
 		        echo "<td>" . $year_released . "</td>";
 		        echo "<td>" . $genre . "</td>";
 			echo "<td>" . $star_rating . "</td>";
