@@ -9,11 +9,7 @@
 
     echo "<table class=\"table\"><tr><th>Title</th><th>Year Released</th><th>Genre</th><th>Avg. Rating</th></tr>";
 
-    $result = mysqli_query($db_connection, "SELECT media_id, title, year_released, genre, avg(star_rating) AS avg_rating
-						FROM media NATURAL JOIN movie NATURAL JOIN watched
-						GROUP BY media_id
-						ORDER BY avg_rating DESC
-						LIMIT 5");
+    $result = mysqli_query($db_connection, "SELECT * FROM top_five_movies");
     $url = "media/#!/movies/";
     while($row = mysqli_fetch_array($result)) {
 	echo "<tr>";
