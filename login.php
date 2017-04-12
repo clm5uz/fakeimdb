@@ -1,7 +1,7 @@
 <?php
 	// Start session.
 	session_start();
-        require_once('viewonly_permissions.php');
+        require_once('login_permissions.php');
 	// Connect to db.
 	$db_connection = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
     	if (mysqli_connect_errno()) {
