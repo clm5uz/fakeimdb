@@ -15,6 +15,9 @@ angular.
         when('/movies/:movieId', {
           template: '<movie-detail></movie-detail>'
         }).
+        when('/episodes/:mediaId/:seasonId/:episodeId', {
+          template: '<episode-detail></episode-detail>'
+        }).
         otherwise('/phones');
     }
   ]);

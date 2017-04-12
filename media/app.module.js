@@ -5,5 +5,6 @@ angular.module('FakeImdb', [
   'ngRoute',
   'phoneDetail',
   'phoneList',
-  'movieDetail'
+  'movieDetail',
+  'episodeDetail'
 ]);

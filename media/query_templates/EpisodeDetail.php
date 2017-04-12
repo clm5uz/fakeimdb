@@ -13,7 +13,21 @@ $str = $_POST['mediaID'];
 $se = $_POST['season'];
 $ep = $_POST['episode'];
 
-$results = $con->query("SELECT *, episode.title AS 'episode_title', GROUP_CONCAT(first_name, ' ', last_name SEPARATOR ', ') AS 'directors' FROM episode LEFT JOIN media ON episode.media_id = media.media_id LEFT JOIN directs ON episode.media_id = directs.media_id NATURAL JOIN director WHERE episode.media_id = $str AND season = $se AND episode = $ep") or die ("Invalid Query: " . $con->error());
+$results = $con->query(
+  "SELECT *, episode.title
+  AS 'episode_title', GROUP_CONCAT(first_name, ' ', last_name SEPARATOR ', ')
+  AS 'directors'
+  FROM episode
+  LEFT JOIN media
+  ON episode.media_id = media.media_id
+  LEFT JOIN directs
+  ON episode.media_id = directs.media_id
+  NATURAL JOIN director
+  WHERE episode.media_id = $str
+  AND season = $se
+  AND episode = $ep") or die ("Invalid Query: " . $con->error());
+
+
 $num_rows = $results->num_rows;
 for ($row_iter = 0; $row_iter < $num_rows; $row_iter++) {
     $sql_row = $results->fetch_array();
