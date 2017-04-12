@@ -2,6 +2,8 @@ $(document).ready(function() {
 	performLoginChangesProfile();
 	loadWantToWatchMedia();
 	loadWatchedMedia();
+	loadFriends();
+	searchForFriends();
 });
 
 function performLoginChangesProfile() {
@@ -32,4 +34,23 @@ function loadWatchedMedia() {
                     $('#watched-media').html(data);
                 }
         });
+}
+
+function loadFriends() {
+	$.ajax({
+		url: 'friends.php',
+		success: function(data) {
+			$('#friends').html(data);
+		}
+	});
+}
+
+function searchForFriends() {
+	$.ajax({
+                url: 'searchForFriends.php',
+                data: {name: $( "#searchForFriends" ).val()},
+                success: function(data){
+                	$('#friendSearchResult').html(data);
+        	}
+	});
 }
