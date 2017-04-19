@@ -56,6 +56,11 @@ function validateSignupForm() {
 	if (email.value === "") {
 		alertString = alertString + "You must enter an email.<br>";
 	}
+	var phone = document.getElementById('inputPhone');
+	var phoneCheck = /^(\()?([2-9]{1}\d{2})(\))?(-|\s)?\d{3}(-|\s)?\d{4}$/;
+	if (phone.value != "" && !phone.value.match(phoneCheck)) {
+		alertString = alertString + "You must enter a valid 10-digit phone number.<br>";
+	}
 	var password1 = document.getElementById('inputPassword1');
 	var password2 = document.getElementById('inputPassword2');
 	var passwordCheck = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
