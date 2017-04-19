@@ -9,20 +9,20 @@
     	}	
 
 	header('Content-Type: text/csv; charset=utf-8');
-	header('Content-Disposition: attachment; filename=' . $_SESSION['firstName'] . '_' . $_SESSION['lastName'] . '_media_to_watch.csv');	
+	header('Content-Disposition: attachment; filename=' . $_SESSION['firstName'] . '_' . $_SESSION['lastName'] . '_watched_media.csv');	
 
 	$output = fopen("php://output", 'w');
-	fputcsv($output, array('Title', 'Year Released', 'Genre'));
+	fputcsv($output, array('Title', 'Year Released', 'Genre', 'Your Rating'));
 	$stmt = $db_connection->stmt_init();
-        if($stmt->prepare("select media_id, title, year_released, genre from wants_to_watch natural join media natural join user where user_id = ? ") or die(mysqli_error($db))) {
+        if($stmt->prepare("select title, year_released, genre, star_rating from watched natural join media natural join user where user_id = ? ") or die(mysqli_error($db))) {
 		$userID = $_SESSION['userID'];
 		$stmt->bind_param('s', $userID);
 		// Execute the statement.
                 $stmt->execute();
-		$stmt->bind_result($media_id, $title, $year_released, $genre);
+		$stmt->bind_result($title, $year_released, $genre, $star_rating);
 		$stmt->store_result();
 		while ($data = $stmt->fetch()) {
-			fputcsv($output, array($title, $year_released, $genre));
+			fputcsv($output, array($title, $year_released, $genre, $star_rating));
 		}		
 	}
 	mysqli_close($db_connection);
