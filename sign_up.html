@@ -45,6 +45,29 @@
 			</div>
                         <button id="signupButton" class="btn btn-sm btn-primary btn-block" type="submit" onclick="return validateSignupForm()">Sign Up</button>
                 </form>
-        </div>	
+        </div>
+
+    <div id="validateModal" name="validateModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Signup Error</h4>
+                </div>
+                <div class="modal-body">
+                	<p id="modal_text"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" style="width: 100%;" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Button to manage the modal. -->
+    <div>
+        <button type="button" name="open_validate" id="open_validate" style="display: none;" data-toggle="modal" data-target="#validateModal"></button>
+    </div>
 </body>
 </html>
