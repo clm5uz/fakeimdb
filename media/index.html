@@ -2,13 +2,15 @@
 <html ng-app="FakeImdb">
   <head>
     <meta charset="utf-8">
-    <title>Just Another Day</title>
+    <title>FakeImdb</title>
     <!-- Load stylesheets -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="app.css" />
     <!-- Load scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- <script src="all_pages/load_navbar.js"></script> -->
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
     <script src="phone-list/phone-list.module.js"></script>
@@ -21,6 +23,8 @@
     <script src="episode-detail/episode-detail.component.js"></script>
   </head>
   <body>
+    <!-- Load the navigation bar -->
+    <div id="navbar-frame"></div>
     <!-- Use a custom component to render a list of phones -->
     <div ng-view></div>
   </body>

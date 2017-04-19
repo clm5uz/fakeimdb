@@ -4,7 +4,7 @@
       <table class="table">
         <tbody>
           <tr>
-            <img src="img/movie-poster/1.jpg" alt={{$ctrl.episodeData['title']}} style="width:100%">
+            <img ng-src="img/movie-poster/1.jpg" alt={{$ctrl.episodeData['title']}} style="width:100%">
           </tr>
           <tr>
             <td><b>Title</b></td>
@@ -35,14 +35,18 @@
             <td>{{$ctrl.episodeData['genre']}}</td>
           </tr>
           <tr>
-            <td><b>Rating<b></td>
-            <td>{{$ctrl.episodeData['episode_rating']}}</td>
-          </tr>
-          <tr>
             <td><b>Duration<b></td>
             <td>{{$ctrl.episodeData['duration']}}</td>
           </tr>
         </tbody>
+       </br>
+        <div ng-if="$ctrl.showButton">
+          <div class="text-center" ng-click="$ctrl.watchStatus()">
+            <button type="button" class={{$ctrl.watchResponse['button']}}>
+              <span class={{$ctrl.watchResponse['glyphicon']}} aria-hidden="true"></span> {{$ctrl.watchResponse['message']}}
+            </button>
+          </div>
+        </div>
       </table>
     </div>
   </div>
