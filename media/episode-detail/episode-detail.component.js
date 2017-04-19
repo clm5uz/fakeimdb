@@ -8,6 +8,7 @@ angular.
     controller: ['$routeParams', '$http',
       function ($routeParams, $http) {
         var self = this;
+	  console.log("Hello!!");
         /* Get episode details */
         self.mediaId = $routeParams.mediaId;
         self.seasonId = $routeParams.seasonId;
@@ -16,12 +17,13 @@ angular.
         {"mediaId": this.mediaId, "seasonId": this.seasonId, "episodeId": this.episodeId}).
         then(function(response){
           self.episodeData = response.data;
-          //console.log("What's the word? " + self.movieData['title']);
+          console.log("What's the word? " + self.movieData['title']);
         });
         /* See if this media is already on your wants_to_watch list */
         $http.post('query_templates/GetUserId.php').
         then(function(response){
           self.userId = response.data;
+	    console.log("userID: " + self.userId);
           // Not logged in, don't show wants_to_watch button
           if (self.userId.includes("-1")){
             self.showButton = false;
