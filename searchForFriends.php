@@ -28,7 +28,7 @@
         	        $stmt->store_result();
 	                while ($data = $stmt->fetch()) {
 				if ($userID != $user_id) {
-                        		echo "<li class=\"list-group-item\">" . $first_name . " " . $last_name . "<form class=\"pull-right\" action=\"addFriend.php\" method=\"post\"><input name=\"friendUserID\" id=\"friendUserID\" type=\"hidden\" value=\"" . $user_id  . "\"><input class=\"btn btn-primary btn-xs\" type=\"submit\" value=\"Add\"></form></li>";
+                        		echo "<li class=\"list-group-item\">" . $first_name . " " . $last_name . "<form class=\"pull-right\" action=\"addFriend.php\" method=\"post\"><input name=\"friendUserID\" id=\"friendUserID\" type=\"hidden\" value=\"" . $user_id  . "\"><button class=\"btn btn-default btn-xs\" type=\"submit\"><i class=\"fa fa-plus\"></i></button></form></li>";
 				}
                 	}
         	}		
@@ -44,7 +44,7 @@
         	        $stmt->store_result();
 	                while ($data = $stmt->fetch()) {
 				if ($userID != $user_id) {
-                        		echo "<li class=\"list-group-item\">" . $first_name . " " . $last_name . "<form class=\"pull-right\" action=\"addFriend.php\" method=\"post\"><input name=\"friendUserID\" id=\"friendUserID\" type=\"hidden\" value=\"" . $user_id  . "\"><input class=\"btn btn-primary btn-xs\" type=\"submit\" value=\"Add\"></form></li>";
+                        		echo "<li class=\"list-group-item\">" . $first_name . " " . $last_name . "<form class=\"pull-right\" action=\"addFriend.php\" method=\"post\"><input name=\"friendUserID\" id=\"friendUserID\" type=\"hidden\" value=\"" . $user_id  . "\"><button class=\"btn btn-default btn-xs\" type=\"submit\"><i class=\"fa fa-plus\"></i></button></form></li>";
 				}
                 	}
         	}
