@@ -8,7 +8,7 @@
         	return null;
     	}	
 
-    	echo "<table class=\"table\"><tr><th>Title</th><th>Year Released</th><th>Genre</th></tr>";
+    	echo "<table class=\"table\"><tr><th>Title</th><th>Year Released</th><th>Genre</th><th></th></tr>";
 
     
 	$stmt = $db_connection->stmt_init();
@@ -25,6 +25,7 @@
 		        echo "<td><a href=\"" . $url . $media_id . "\">" . $title . "</td>";
 		        echo "<td>" . $year_released . "</td>";
 		        echo "<td>" . $genre . "</td>";
+			echo "<td><form class=\"pull-right\" action=\"removeWantsToWatch.php\" method=\"post\"><input name=\"mediaID\" id=\"mediaID\" type=\"hidden\" value=\"" . $media_id  . "\"><button type=\"submit\" class=\"btn btn-xs btn-default\"><i class=\"fa fa-minus\"></i></button></form></td>";
 		        echo "</tr>";
 		}		
 	}
