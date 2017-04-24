@@ -8,9 +8,16 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/load_navbar.js"></script>
     <script src="js/profile.js"></script>
+    <script type="text/javascript">
+    	function openRateModal(media_id) {
+		document.getElementById('mediaIDValue').value = media_id;
+		$('#open_rate').click();
+	}
+    </script>
     <title>Fakeimdb</title>
 </head>
 <body>
+	<button id="testID" class="btn btn-success">test</button>
         <link rel="stylesheet" type="text/css" href="css/index_style.css">
         <h2>FakeImdb</h2>
 	<h2 id="logged-in"></h2>
@@ -18,7 +25,7 @@
         <div id="navbar-frame"></div>
         <!-- Display top movies and shows -->
 	<div class="column-large">
-		<h3>Your Movies and Shows</h3><a href="export_want_to_watch.php" class="pull-right">Export</a>
+		<h3>Movies and Shows To Watch</h3><a href="export_want_to_watch.php" class="pull-right">Export</a>
                 <div id="want-to-watch-media"></div>
 		<br>
 		<h3>Watched Movies and Shows</h3><a href="export_watched.php" class="pull-right">Export</a>
@@ -29,6 +36,42 @@
 		<div id="friends"></div>
 		<input onchange="searchForFriends();" class="form-control" id="searchForFriends" type="search" size="30" placeholder="Enter a name"/>
 	        <div id="friendSearchResult"></div>
+	</div>
+
+	<div id="rateModal" name="rateModal" class="modal fade" role="dialog">
+        	<div class="modal-dialog">
+            	<!-- Modal content-->
+	            <div class="modal-content">
+        	        <div class="modal-header">
+                	    <button type="button" class="close" data-dismiss="modal">&times;</button>
+	                    <h4 class="modal-title">Give a Rating!</h4>
+        	        </div>
+                	<div class="modal-body">
+                        	<form action="rate_movie.php" method="post">
+					<input type="hidden" id="mediaIDValue" name="mediaIDValue">
+					<label>Rating: </label>
+					<select name="rateInput" id="rateInput" name="rateInput" style="width: 15%;">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
+					<br>
+					<br>
+					<div class="cols-xs 12">
+						<button type="submit" class="btn btn-sm btn-success cols-xs 3" style="width:15%">Rate</button>
+						<button type="button" class="btn btn-danger pull-right cols-xs 3" style="width: 15%;" data-dismiss="modal">Cancel</button>
+					</div>
+				</form>
+	                </div>
+			<div class="modal-footer"></div>
+	            </div>
+        	</div>
+	</div>
+
+        <div>
+		<button style="display: none;" type="button" name="open_rate" id="open_rate" data-toggle="modal" data-target="#rateModal"><i class="fa fa-check"></i></button>
 	</div>
 </body>
 </html>
