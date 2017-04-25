@@ -11,7 +11,7 @@
 
     $result = mysqli_query($db_connection, "SELECT * FROM top_five_shows");
 
-    $url = "media/#!/movies/";
+    $url = "media/#!/tvshows/";
     while($row = mysqli_fetch_array($result)) {
         echo "<tr>";
         echo "<td><a href=\"" . $url . $row['media_id']  . "\">" . $row['title'] . "</a></td>";
