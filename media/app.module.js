@@ -6,5 +6,6 @@ angular.module('FakeImdb', [
   'phoneDetail',
   'phoneList',
   'movieDetail',
-  'episodeDetail'
+  'episodeDetail',
+  'tvshowDetail'
 ]);
