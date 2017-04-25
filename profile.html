@@ -13,6 +13,21 @@
 		document.getElementById('mediaIDValue').value = media_id;
 		$('#open_rate').click();
 	}
+	function openShareModal(media_id) {
+		var select = document.getElementById('friendInput');	
+		var friends = document.getElementById('friends').children[0].children;
+		for (var i = 0; i < friends.length; i+=2) {
+			var id = friends[i].innerHTML;
+			var nameStr = friends[i+1].innerHTML;
+			var name = nameStr.substr(0, nameStr.indexOf('<'));
+			var option = document.createElement("option");
+			option.text = name;
+			option.value = id;
+			select.add(option);	
+		}
+		document.getElementById('shareMediaIDValue').value = media_id;
+		$('#open_share').click();
+	}
     </script>
     <title>Fakeimdb</title>
 </head>
@@ -52,7 +67,7 @@
                         	<form action="rate_movie.php" method="post">
 					<input type="hidden" id="mediaIDValue" name="mediaIDValue">
 					<label>Rating: </label>
-					<select name="rateInput" id="rateInput" name="rateInput" style="width: 15%;">
+					<select name="rateInput" id="rateInput" style="width: 15%;">
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
@@ -75,5 +90,36 @@
         <div>
 		<button style="display: none;" type="button" name="open_rate" id="open_rate" data-toggle="modal" data-target="#rateModal"><i class="fa fa-check"></i></button>
 	</div>
+
+	<div id="shareModal" name="shareModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Share with a friend!</h4>
+                        </div>
+                        <div class="modal-body">
+                                <form action="share_media_with_friend.php" method="post">
+                                        <input type="hidden" id="shareMediaIDValue" name="shareMediaIDValue">
+                                        <label>Share with: </label>
+                                        <select name="friendInput" id="friendInput" style="width: 35%;">
+                                        </select>
+                                        <br>
+                                        <br>
+                                        <div class="cols-xs 12">
+                                                <button type="submit" class="btn btn-sm btn-success cols-xs 3" style="width:15%">Share</button>
+                                                <button type="button" class="btn btn-danger pull-right cols-xs 3" style="width: 15%;" data-dismiss="modal">Cancel</button>
+                                        </div>
+                                </form>
+                        </div>
+                        <div class="modal-footer"></div>
+                    </div>
+                </div>
+        </div>
+
+        <div>
+                <button style="display: none;" type="button" name="open_share" id="open_share" data-toggle="modal" data-target="#shareModal"></button>
+        </div>
 </body>
 </html>

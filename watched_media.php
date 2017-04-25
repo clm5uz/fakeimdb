@@ -6,9 +6,10 @@
 	if (mysqli_connect_errno()) {
 	        echo("Can't connect to MySQL Server. Error code: " . mysqli_connect_error());
         	return null;
-    	}	
-
-    	echo "<table class=\"table\"><tr><th>Title</th><th>Year Released</th><th>Genre</th><th>Your Rating</th></tr>";
+    	}
+	
+	// Display watched media.
+    	echo "<table class=\"table\"><tr><th>Title</th><th>Year Released</th><th>Genre</th><th>Your Rating</th><th></th></tr>";
 
     
 	$stmt = $db_connection->stmt_init();
@@ -34,7 +35,8 @@
 		        echo "<td><a href=\"" . $url . $media_id . "\">" . $title . "</td>";
 		        echo "<td>" . $year_released . "</td>";
 		        echo "<td>" . $genre . "</td>";
-			echo "<td>" . $star_rating . "</td>";
+			echo "<td>" . $star_rating . "</td>";	
+			echo "<td><button onclick=\"openShareModal(" . $media_id . ");\" class=\"btn btn-xs btn-success pull-right\"><i class=\"fa fa-share\"></i></button></td>";
 		        echo "</tr>";
 		}		
 	}
