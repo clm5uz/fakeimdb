@@ -2,6 +2,7 @@ $(document).ready(function() {
 	performLoginChangesProfile();
 	loadWantToWatchMedia();
 	loadWatchedMedia();
+	loadSharedMedia();
 	loadFriends();
 	searchForFriends();
 });
@@ -34,6 +35,15 @@ function loadWatchedMedia() {
                     $('#watched-media').html(data);
                 }
         });
+}
+
+function loadSharedMedia() {
+	$.ajax({
+		url: 'shared_media.php',
+		success: function(data) {
+			$('#shared-media').html(data);
+		}
+	});
 }
 
 function loadFriends() {
