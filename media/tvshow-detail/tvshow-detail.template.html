@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="table-responsive">
+    <div class="col-md-4">
+      <table class="table">
+        <tbody>
+          <tr>
+            <img ng-src="img/movie-poster/1.jpg" alt={{$ctrl.tvshowSummary['title']}} style="width:100%">
+          </tr>
+          <tr>
+            <td><b>Title</b></td>
+            <td>{{$ctrl.tvshowSummary['title']}}</td>
+          </tr>
+          <tr>
+            <td><b>Director(s)<b></td>
+            <td>{{$ctrl.tvshowSummary['directors']}}</td>
+          </tr>
+          <tr>
+            <td><b>Released<b></td>
+              <td>{{$ctrl.tvshowSummary['year_released']}}</td>
+          </tr>
+          <tr>
+            <td><b>Seasons<b></td>
+              <td>{{$ctrl.tvshowSummary['number_of_seasons']}}</td>
+          </tr>
+          <tr>
+            <td><b>Genre<b></td>
+            <td>{{$ctrl.tvshowSummary['genre']}}</td>
+          </tr>
+          <tr>
+            <td><b>Rating<b></td>
+            <td>{{$ctrl.tvshowSummary['tv_rating']}}</td>
+          </tr>
+        </tbody>
+      </br>
+       <div ng-if="$ctrl.showButton">
+          <div class="text-center" ng-click="$ctrl.watchStatus()">
+           <button type="button" class={{$ctrl.watchResponse['button']}}>
+             <span class={{$ctrl.watchResponse['glyphicon']}} aria-hidden="true"></span> {{$ctrl.watchResponse['message']}}
+           </button>
+         </div>
+       </div>
+      </table>
+    </div>
+  </div>
+  <!-- <p>nOW FOR TV show details </p> -->
+  <div id='episodes'>
+    <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th><b>Title<b></th>
+              <th><b>Season<b></th>
+              <th><b>Episode<b></th>
+              <th><b>Duration<b></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="row in $ctrl.tvshowEpisodes">
+              <td><a ng-href="#!/episodes/{{row.media_id}}/{{row.season}}/{{row.episode}}">{{row.title}}</a></td>
+              <td>{{row.season}}</td>
+              <td>{{row.episode}}</td>
+              <td>{{row.duration}}</td>
+            </div>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

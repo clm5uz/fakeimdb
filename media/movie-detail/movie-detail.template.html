@@ -31,6 +31,14 @@
             <td>{{$ctrl.movieData['duration']}}</td>
           </tr>
         </tbody>
+      </br>
+       <div ng-if="$ctrl.showButton">
+          <div class="text-center" ng-click="$ctrl.watchStatus()">
+           <button type="button" class={{$ctrl.watchResponse['button']}}>
+             <span class={{$ctrl.watchResponse['glyphicon']}} aria-hidden="true"></span> {{$ctrl.watchResponse['message']}}
+           </button>
+         </div>
+       </div>
       </table>
     </div>
   </div>
