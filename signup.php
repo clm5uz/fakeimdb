@@ -1,7 +1,7 @@
 <?php
 	// Start session.
 	session_start();
-        require_once('modify_permissions.php');
+        require_once('signup_permissions.php');
 	// Connect to db.
 	$db_connection = new mysqli($SERVER, $USERNAME, $PASSWORD, $DATABASE);
     	if (mysqli_connect_errno()) {
@@ -58,9 +58,9 @@
 	$phone = $_POST['inputPhone'];
 	if ($userID != "" && $phone != "") {
 		$stmt_phone = $db_connection->stmt_init();
-	        if($stmt_phone->prepare("insert into user_phone values (?, ?) ") or die(mysqli_error($db))) {
+	        if($stmt_phone->prepare("CALL insert_phone(?, ?)") or die(mysqli_error($db))) {
         	        // Bind parameters.
-	                $stmt_phone->bind_param('ss', $userID, $phone);
+	                $stmt_phone->bind_param('is', $userID, $phone);
         	        // Execute the statement.
                 	$stmt_phone->execute();
 	                // Close statement.
