@@ -19,7 +19,7 @@ angular.
           console.log("What's the word? " + self.episodeData['title']);
           /* Get thumbnailUrl */
           var searchTerm = self.episodeData['title'] + " " + self.episodeData['episode_title']  ;
-          $http.post('query_templates/BingImageSearch.php', {"searchTerm": searchTerm}).
+          $http.post('query_templates/ImageTest.php', {"searchTerm": searchTerm}).
           then(function(response){
             self.imgUrl = response.data;
             //console.log("What's the word? " + self.imgUrl);
