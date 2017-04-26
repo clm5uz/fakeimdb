@@ -9,11 +9,40 @@
 
     <script type="text/javascript" src="js/load_navbar.js"></script>
     <title>Fakeimdb</title>
+<script>
+function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+	var s = getParameterByName('ser');
+	var st = getParameterByName('searchType');
+        $(document).ready(function() {
+           $.ajax({
+                url: 'search.php',
+		data: {searchType : st, ser : s},
+                success: function(data){
+                    $('#search').html(data);
+			
+                }
+            });
+        });
+    </script>
 </head>
 <body>
         <link rel="stylesheet" type="text/css" href="css/sign_up_style.css">
 	<h2>FakeImdb</h2>
         <!-- Load the navigation bar -->
         <div id="navbar-frame"></div>
+	<div class="column-large">
+		<h3>Search Results</h3>
+		<div id="search"></div>
+	</div>
 </body>
 </html>
