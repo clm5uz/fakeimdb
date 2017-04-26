@@ -4,11 +4,11 @@
       <table class="table">
         <tbody>
           <tr>
-            <img ng-src="img/movie-poster/1.jpg" alt={{$ctrl.episodeData['title']}} style="width:100%">
+            <img ng-src={{$ctrl.imgUrl}} alt={{$ctrl.episodeData['title']}} style="width:100%">
           </tr>
           <tr>
             <td><b>Title</b></td>
-            <td>{{$ctrl.episodeData['title']}}</td>
+            <td><a ng-href="#!/tvshows/{{$ctrl.episodeData['media_id']}}">{{$ctrl.episodeData['title']}}</a></td>
           </tr>
           <tr>
             <td><b>Episode Title<b></td>

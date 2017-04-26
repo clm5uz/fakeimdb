@@ -14,6 +14,13 @@ angular.
         then(function(response){
           self.tvshowSummary = response.data;
           //console.log("What's the word? " + self.tvshowSummary['title']);
+          /* Get thumbnailUrl */
+          var searchTerm = self.tvshowSummary['title'] + "tv show";
+          $http.post('query_templates/BingImageSearch.php', {"searchTerm": searchTerm}).
+          then(function(response){
+            self.imgUrl = response.data;
+            //console.log("What's the word? " + self.imgUrl);
+          });
         });
         /* Get tvshow episodes */
         $http.post('tvshow-detail/tvshow-episodes.php', {"mediaId": this.mediaId}).

@@ -13,6 +13,13 @@ angular.
         then(function(response){
           self.movieData = response.data;
           //console.log("What's the word? " + self.movieData['title']);
+          /* Get thumbnailUrl */
+          var searchTerm = self.movieData['title'] + "movie poster";
+          $http.post('query_templates/BingImageSearch.php', {"searchTerm": searchTerm}).
+          then(function(response){
+            self.imgUrl = response.data;
+            //console.log("What's the word? " + self.imgUrl);
+          });
         });
         /* See if this media is already on your wants_to_watch list */
         $http.post('query_templates/GetUserId.php').
