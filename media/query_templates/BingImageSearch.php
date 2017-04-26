@@ -1,6 +1,4 @@
 <?php
-/* Connect to database */
-
 /* Get searchTerm from POST parameters  */
 $post_date = file_get_contents("php://input");
 $data = json_decode($post_date);
@@ -8,6 +6,7 @@ $searchTerm = $data->searchTerm;
 $searchTermEncoded = urlencode($searchTerm);
 
 /* cURL the search term */
+require_once('libcurl/libcurlemu.inc.php');
 $sURL = "https://api.cognitive.microsoft.com/bing/v5.0/images/search?q=$searchTermEncoded";
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $sURL);
