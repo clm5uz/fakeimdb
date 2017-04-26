@@ -1,25 +1,26 @@
 <script type="text/javascript">
 $.ajax({
-	url: 'check_logged_in.php',
+	url: 'navbar/check_logged_in.php',
         success: function(data) {
         	var loggedIn = data;
 	        if (loggedIn == "true") {
-        		$("#loggedInOnly").load("logged_in_nav.html");
+        		$("#loggedInOnly").load("navbar/logged_in_nav.html");
 	        }
       	}
 });
 </script>
+<center><h3>WHO MOVED MY HAMBURGER MENU</h3></center>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="index.html">Fake IMBD</a>
     </div>
     <ul class="nav navbar-nav">
-      <li id="homeTab" class="active"><a href="index.html">Home</a></li>
-      <li id="showsTab"><a href="media/#!/top_shows">TV shows</a></li>
-      <li id="moviesTab"><a href="media/#!/top_movies">Movies</a></li>
+      <li id="homeTab"><a href="../index.html">Home</a></li>
+      <li id="showsTab"><a href="#!/top_shows">TV shows</a></li>
+      <li id="moviesTab"><a href="#!/top_movies">Movies</a></li>
     </ul>
-    <form class="navbar-form navbar-left" action="search_results.html" method="get">
+    <form class="navbar-form navbar-left" action="../search_results.html" method="get">
 	<select name="searchType" id="searchType" class="form-control">
 		<option value="Title">Title</option>
 		<option value="Episode">Episode</option>

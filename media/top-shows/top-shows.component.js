@@ -11,7 +11,7 @@ angular.
         $http.post('top-shows/top-shows.php').
         then(function(response){
           self.topShows = response.data;
-          console.log("What's the word? " + self.topShows['Comedy'][0]['title']);
+          //console.log("What's the word? " + self.topShows['Comedy'][0]['title']);
         });
     }]
   });

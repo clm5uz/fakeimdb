@@ -6,27 +6,21 @@ angular.
     function config($locationProvider, $routeProvider) {
       $locationProvider.hashPrefix('!');
       $routeProvider.
-        when('/phones', {
-          template: '<phone-list></phone-list>'
-        }).
-        when('/phones/:phoneId', {
-          template: '<phone-detail></phone-detail>'
-        }).
         when('/movies/:movieId', {
           template: '<movie-detail></movie-detail>'
         }).
-        when('/tvshows/:mediaId/', {
+        when('/tvshows/:mediaId', {
           template: '<tvshow-detail></tvshow-detail>'
         }).
         when('/episodes/:mediaId/:seasonId/:episodeId', {
           template: '<episode-detail></episode-detail>'
         }).
-        when('/top_movies/', {
+        when('/top_movies', {
           template: '<top-movies></top-movies>'
         }).
-        when('/top_shows/', {
+        when('/top_shows', {
           template: '<top-shows></top-shows>'
         }).
-        otherwise('/phones');
+        otherwise('/top_movies');
     }
   ]);
