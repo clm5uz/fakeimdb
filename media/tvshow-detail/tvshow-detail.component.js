@@ -19,7 +19,7 @@ angular.
         $http.post('tvshow-detail/tvshow-episodes.php', {"mediaId": this.mediaId}).
         then(function(response){
           self.tvshowEpisodes = response.data;
-          console.log("What's the word? " + self.tvshowEpisodes.length);
+          //console.log("What's the word? " + self.tvshowEpisodes.length);
         });
         /* See if this media is already on your wants_to_watch list */
         $http.post('query_templates/GetUserId.php').

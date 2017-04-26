@@ -24,7 +24,7 @@ $tvshow_episodes = array();
 for($row_iter = 0; $row_iter < $num_rows; $row_iter++) {
    $row = $results->fetch_array();
    array_push($tvshow_episodes, $row);
-  }
+}
 /* Return results from query */
 echo json_encode($tvshow_episodes);
 //echo "numrows: $num_rows";
