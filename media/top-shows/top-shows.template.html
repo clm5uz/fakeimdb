@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="col-md-8">
+    <div ng-repeat="(genre,shows) in $ctrl.topShows">
+      <center><h3>Top {{genre}} Shows</h3></center>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th><b>Title<b></th>
+              <th><b>Year Released<b></th>
+              <th><b>Rating<b></th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="row in shows">
+                <td><a ng-href="#!/tvshows/{{row.media_id}}">{{row.title}}</a></td>
+                <td>{{row.year_released}}</td>
+                <td>{{row.avg_rating}}</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </br>
+  </div>
+</div>

@@ -24,6 +24,9 @@ angular.
         when('/top_movies/', {
           template: '<top-movies></top-movies>'
         }).
+        when('/top_shows/', {
+          template: '<top-shows></top-shows>'
+        }).
         otherwise('/phones');
     }
   ]);
